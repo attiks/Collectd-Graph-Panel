@@ -39,4 +39,19 @@ function error_image() {
 	exit;
 }
 
-?>
+function get_all_hosts() {
+  $h = array();
+
+  # show all categorized hosts
+  if (is_array($CONFIG['cat'])) {
+    foreach ($CONFIG['cat'] as $cat => $hosts) {
+      $h = array_merge($h, $hosts);
+    }
+  }
+  # search for uncategorized hosts
+  if ($chosts = collectd_hosts()) {
+    $h = array_merge($chosts, $h);
+  }
+
+  return $h;
+}

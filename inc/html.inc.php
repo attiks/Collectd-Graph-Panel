@@ -133,4 +133,22 @@ function breadcrumbs() {
 	return $path;
 }
 
+function hosts_navigation($active_host = '') {
+  $output = '';
+  $hosts = get_all_hosts();
+
+  foreach ($hosts as $h) {
+    if ($h == $active_host) {
+      $output .= '<li class="active"><a href="host.php?h=' . $h . '">' . $h . '</a></li>';
+    }
+    else {
+      $output .= '<li><a href="host.php?h=' . $h . '">' . $h . '</a></li>';
+    }
+  }
+  if ($output) {
+    $output = '<ul class="hosts">' . $output . '</li>';
+  } 
+
+  return $output;
+}
 ?>
