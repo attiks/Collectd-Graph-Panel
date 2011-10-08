@@ -146,7 +146,7 @@ function hosts_navigation($active_host = '') {
     }
   }
   if ($output) {
-    $output = '<ul class="hosts">' . $output . '</li>';
+    $output = '<ul class="hosts">' . $output . '</ul>';
   } 
 
   return $output;
