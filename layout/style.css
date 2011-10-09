@@ -94,3 +94,34 @@ hr {
 	font-weight: bold;
 	color: #D50100;
 }
+
+.dashboard {
+  float: none;
+  clear: both;
+}
+
+.dashboard .dashboard-graph img {
+  max-width: 100%;
+}
+
+.dashboard .dashboard-graph {
+  float: left;
+}
+
+.cols-2 .dashboard-graph {
+  width: 46%;
+  padding-right: 3%;
+  padding-bottom: 3%;
+}
+
+.cols-3 .dashboard-graph {
+  width: 30%;
+  padding-right: 3%;
+  padding-bottom: 3%;
+}
+
+.cols-4 .dashboard-graph {
+  width: 21%;
+  padding-right: 3%;
+  padding-bottom: 3%;
+}
