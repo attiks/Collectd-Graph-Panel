@@ -14,8 +14,6 @@ $subplugin = validate_get(GET('s'), 'plugin');
 
 html_start();
 
-print hosts_navigation();
-
 $services = array();
 $hosts = get_all_hosts();
 foreach ($hosts as $h) {
@@ -25,7 +23,9 @@ foreach ($hosts as $h) {
     $plugindata = group_plugindata($plugindata);
     $services[$plugin]['#hosts'][] = $h;
     foreach($plugindata as $pd) {
-      $services[$plugin][$pd['t']][md5($h)] = $h;
+      if ($pd['t'] != $plugin) {
+        $services[$plugin][$pd['t']][md5($h)] = $h;
+      }
     }
   }
 }
@@ -80,11 +80,15 @@ if ($splugin && array_key_exists($splugin, $services)) {
 else {
   print '<ul class="services">';
   foreach ($services as $service => $hs) {
-    print '<li><a href="service.php?p=' . $service . '">' . $service . '</a><ul>';
-    foreach ($hs as $k => $s) {
-      print '<li><a href="service.php?p=' . $service . '&amp;s=' . $k . '">' . $k . '</a></li>';
+    if (substr($service, 0, 1) != '#') {
+      print '<li><a href="service.php?p=' . $service . '">' . $service . '</a><ul>';
+      foreach ($hs as $k => $s) {
+        if (substr($k, 0, 1) != '#') {
+          print '<li><a href="service.php?p=' . $service . '&amp;s=' . $k . '">' . $k . '</a></li>';
+        }
+      }
+      print '</ul></li>';
     }
-    print '</ul></li>';
   }
   print '</ul>';
 }
