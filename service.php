@@ -30,7 +30,7 @@ foreach ($hosts as $h) {
   }
 }
 
-print '<ul class="services">';
+print '<div class="services"><ul class="services">';
 foreach ($services as $service => $hs) {
   if (substr($service, 0, 1) != '#') {
     print '<li><a href="service.php?p=' . $service . '">' . $service . '</a><ul>';
@@ -42,7 +42,7 @@ foreach ($services as $service => $hs) {
     print '</ul></li>';
   }
 }
-print '</ul>';
+print '</ul></div>';
 
 if ($splugin && array_key_exists($splugin, $services)) {
   print '<table><tr valign="top">';
