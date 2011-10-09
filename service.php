@@ -77,21 +77,6 @@ if ($splugin && array_key_exists($splugin, $services)) {
   }
   print '</tr></table>';
 }
-else {
-  print '<ul class="services">';
-  foreach ($services as $service => $hs) {
-    if (substr($service, 0, 1) != '#') {
-      print '<li><a href="service.php?p=' . $service . '">' . $service . '</a><ul>';
-      foreach ($hs as $k => $s) {
-        if (substr($k, 0, 1) != '#') {
-          print '<li><a href="service.php?p=' . $service . '&amp;s=' . $k . '">' . $k . '</a></li>';
-        }
-      }
-      print '</ul></li>';
-    }
-  }
-  print '</ul>';
-}
 
 html_end();
 
