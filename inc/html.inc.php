@@ -27,9 +27,18 @@ function html_start() {
   <h1><a href="{$CONFIG['weburl']}">Collectd Graph Panel</a></h1>
 </div>
 
-<div id="content">
-
+<div id="nav">
+  <ul>
+    <li><a href="index.php">Home</a></li>
+    <li><a href="service.php">Services</a></li>
+    <li><a href="dashboard.php">Dashboard</a></li>
+  </ul>
+</div>
 EOT;
+
+print hosts_navigation();
+print '<div id="content">';
+
 }
 
 function html_end() {
