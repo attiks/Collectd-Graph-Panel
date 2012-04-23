@@ -9,9 +9,7 @@ $splugin = validate_get(GET('p'), 'plugin');
 
 html_start();
 
-print hosts_navigation();
-
-printf('<h2>%s</h2>'."\n", $host);
+printf('<h2>%s</h2>'."\n", get_host_alias($host));
 
 $plugins = collectd_plugins($host);
 

@@ -98,7 +98,7 @@ function host_summary($hosts) {
 
 		printf('<tr class="%s">', $row_style[$host_counter % 2]);
 		printf('<th><a href="%shost.php?h=%s">%s</a></th>',
-			$CONFIG['weburl'],$host, $host);
+			$CONFIG['weburl'],$host, get_host_alias($host));
 
 		if ($CONFIG['showload']) {
 			collectd_flush(sprintf('%s/load/load', $host));
@@ -148,10 +148,10 @@ function hosts_navigation($active_host = '') {
 
   foreach ($hosts as $h) {
     if ($h == $active_host) {
-      $output .= '<li class="active"><a href="host.php?h=' . $h . '">' . $h . '</a></li>';
+      $output .= '<li class="active"><a href="host.php?h=' . $h . '">' . get_host_alias($h) . '</a></li>';
     }
     else {
-      $output .= '<li><a href="host.php?h=' . $h . '">' . $h . '</a></li>';
+      $output .= '<li><a href="host.php?h=' . $h . '">' . get_host_alias($h) . '</a></li>';
     }
   }
   if ($output) {

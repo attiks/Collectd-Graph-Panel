@@ -2,6 +2,14 @@
 
 # global functions
 
+function get_host_alias($host) {
+  global $CONFIG;
+  if (isset($CONFIG['host_alias'][$host])) {
+    return $CONFIG['host_alias'][$host];
+  }
+  return $host;
+}
+
 function GET($index) {
 	if (isset($_GET[$index]))
 		return $_GET[$index];

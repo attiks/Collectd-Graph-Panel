@@ -23,7 +23,7 @@ $seconds = GET('s');
 html_start();
 
 printf('<h2><a href="%s">%s</a></h2>'."\n",
-	$CONFIG['weburl'].'host.php?h='.htmlentities($host), $host
+	$CONFIG['weburl'].'host.php?h='.htmlentities($host), get_host_alias($host)
 );
 
 $term = array(
