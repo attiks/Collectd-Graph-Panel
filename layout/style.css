@@ -116,18 +116,21 @@ hr {
   width: 46%;
   padding-right: 3%;
   padding-bottom: 3%;
+  height: 0px;
 }
 
 .cols-3 .dashboard-graph {
   width: 30%;
   padding-right: 3%;
   padding-bottom: 3%;
+  height: 220px;
 }
 
 .cols-4 .dashboard-graph {
   width: 21%;
   padding-right: 3%;
   padding-bottom: 3%;
+  height: 220px;
 }
 
 div.services {
